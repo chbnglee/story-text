@@ -411,8 +411,82 @@ def _style_ws(ws):
 # ─────────────────────────────────────────────────────────────────────────────
 
 def split_sentences(text: str) -> list[str]:
-    raw = re.split(r'(?<=[.!?"])\s+', text.strip())
-    return [s.strip() for s in raw if s.strip()]
+    # Rule 7: normalize dashes
+    text = re.sub(r'—|--', '–', text)
+    text = re.sub(r' - ', ' – ', text)
+    # Normalize curly double quotes to straight double quotes
+    text = text.replace('“', '"').replace('”', '"')
+
+    n = len(text)
+    results: list[str] = []
+    start = 0
+    in_quote = False
+
+    def skip_ws(pos: int) -> int:
+        while pos < n and text[pos] in ' \t\r\n':
+            pos += 1
+        return pos
+
+    def starts_new_sentence(pos: int) -> bool:
+        """Uppercase at pos, looking through one optional opening quote."""
+        j = skip_ws(pos)
+        if j < n and text[j] == '"':
+            j = skip_ws(j + 1)
+        return j < n and text[j].isupper()
+
+    i = 0
+    while i < n:
+        ch = text[i]
+
+        if ch == '"':
+            if not in_quote:
+                in_quote = True
+            else:
+                j = i - 1
+                while j >= start and text[j] in ' \t':
+                    j -= 1
+                prev_ch = text[j] if j >= start else ''
+                in_quote = False
+
+                if prev_ch in '.!?':
+                    nxt = skip_ws(i + 1)
+                    if starts_new_sentence(nxt):
+                        # Rule 4: terminal in quote + new sentence outside → split
+                        results.append(text[start:i + 1].strip())
+                        start = nxt
+                    # else Rule 3: reporting clause (lowercase) → 1 sentence
+                # else Rule 2: comma before closing quote → 1 sentence
+
+        elif ch in '.!?':
+            if in_quote:
+                nxt = skip_ws(i + 1)
+                # Uppercase inside quotes (not closing quote) → split within quote
+                if nxt < n and text[nxt] != '"' and text[nxt].isupper():
+                    results.append(text[start:i + 1].strip())
+                    start = nxt
+            else:
+                nxt = skip_ws(i + 1)
+                if starts_new_sentence(nxt):
+                    results.append(text[start:i + 1].strip())
+                    start = nxt
+
+        elif ch in '–;:' and not in_quote:
+            nxt = skip_ws(i + 1)
+            if starts_new_sentence(nxt):
+                # Rule 6: uppercase following → 2 sentences, separator kept with first
+                seg = text[start:i + 1].rstrip()
+                if seg:
+                    results.append(seg)
+                start = nxt
+            # else Rule 5 / 6-1: lowercase → 1 sentence
+
+        i += 1
+
+    remaining = text[start:].strip()
+    if remaining:
+        results.append(remaining)
+
+    return [s for s in results if s.strip()]
 
 
 def parse_scenes(raw: str) -> list[tuple[int, list[str]]]:
