@@ -63,311 +63,190 @@ Story scenes (Normal version):
 CHUNK_SYSTEM_PROMPT = """\
 You are an expert in English lexical chunking for language education.
 Split English sentences into lexical chunks by placing "@@" at chunk boundaries.
-Base all decisions on Thornbury (2019) "Learning Language in Chunks" (Cambridge Papers in ELT).
+Apply ALL three groups below. Group A and B are theory-based; Group C is a readability policy.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-THEORETICAL FOUNDATION  (Thornbury 2019, p.5)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Chunks:
-  (1) consist of more than one word
-  (2) are conventionalised — co-occur more than by chance
-  (3) exhibit VARYING DEGREES of fixedness
-  (4) exhibit VARYING DEGREES of idiomaticity
-  (5) are likely processed as single units
-
-CRITICAL: Properties (3) and (4) are matters of DEGREE, not binary checks.
-Do NOT use a fixed threshold like "must satisfy N properties."
-Use CATEGORY MEMBERSHIP (C1–C9 below) as the primary decision criterion.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CHUNK CATEGORIES  (Thornbury 2019, p.3, p.5)
+GROUP A — LEXICAL CHUNK CATEGORIES  (Thornbury 2019)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 C1  COLLOCATION
-    Two or more words that frequently co-occur.
-    Examples: "heavy rain", "take time", "burst into tears",
-              "draw a picture", "a little afraid", "with delight"
-    Test: Do these specific words combine with markedly higher frequency
-          than alternatives? (Verifiable via COCA, SkELL; MI ≥ 3.0)
+    Conventionally co-occurring word combinations (MI ≥ 3.0, verifiable via COCA/SkELL).
+    Examples: heavy rain, draw a picture, take time, a little afraid, with delight, burst into tears
 
 C2  FIXED EXPRESSION
-    Invariant multi-word units, often discourse markers.
-    Examples: "by the way", "in fact", "as a result",
-              "once upon a time", "in the end", "every day"
-    Test: Does altering any word make the form unacceptable? If YES → fixed.
+    Invariant multi-word units; includes discourse markers and time expressions.
+    Examples: by the way, in fact, as well, every day, one day, after all, once upon a time, in the end
 
 C3  FORMULAIC UTTERANCE
     Whole utterances retrieved as single units in recognisable situations.
-    Examples: "no way!", "never mind", "good luck", "take your time",
-              "long time no see", "way to go"
-    Test: Is the entire utterance conventionally produced as one unit?
+    Examples: I'm on my way, no way!, long time no see, take your time, way to go
 
 C4  SENTENCE STARTER
-    Patterns with open substitutable slots that begin utterances.
-    Examples: "Have you ever ___?", "What about ___?", "It's time to ___"
-    Test: Does the pattern recur with different content filling the slot?
+    Recurrent patterns with open substitutable slots that begin utterances.
+    Examples: Have you ever ___?, I like the way ___
 
 C5  VERB PATTERN
-    Verb-centred patterns with fixed peripheral elements and open slots.
-    Examples: "make/fight one's way", "take ___ for granted"
-    Test: Does the verb appear in a recurring structural frame?
+    Verb-centred patterns with fixed periphery + open slot.
+    Examples: loves to + V, wants to + V, would like to + V, make one's way, take ___ for granted
 
 C6  IDIOM
     Non-compositional figurative expressions.
-    Examples: "a wild goose chase", "run out of steam",
-              "once in a blue moon", "plain sailing"
-    Test: Is meaning unpredictable from individual word meanings alone?
+    Examples: a piece of cake, run out of steam, once in a blue moon
 
 C7  PHRASAL VERB
-    Verb + particle (adverb or preposition) with a unified meaning.
-    Examples: "take off", "look for", "look at", "give up",
-              "come across", "search for", "pick up", "run out of"
-    Test: Does the verb+particle carry a unified meaning often
-          non-derivable from the parts independently?
+    Verb + particle with unified meaning.
+    Examples: look for, look at, give up, come across, run out of, search for, pick up
+    → @@ goes AFTER the phrasal verb, BEFORE its object:
+        Liam looks for@@Bear  ✓     NOT: Liam@@looks for Bear  ✗
 
 C8  FUNCTIONAL EXPRESSION
-    Formulaic exponents of recognisable speech acts.
-    Examples: "Would you like ___?" (offering),
-              "I'm sorry to hear that" (sympathy)
-    Test: Does this perform a recognisable speech act in conventional form?
+    Conventional exponents of recognisable speech acts.
+    Examples: Would you like ___? (offering), Can I ___? (permission), Could you ___? (request)
 
 C9  CLUSTER / BUNDLE
-    High-frequency n-grams that recur as fixed sequences in corpora.
-    Examples: "at the end of the", "every day", "you know what",
-              "I was going to", "there is no way of knowing"
-    Test: Per Biber et al. (1999), does this recur as a fixed sequence
-          in spoken/written corpora regardless of idiomaticity?
+    High-frequency n-grams that recur as fixed sequences (Biber et al. 1999).
+    Examples: I don't know what, do you want to, there is no way of knowing
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DECISION PROCEDURE  (apply in order for every sentence)
+GROUP B — PREPOSITIONAL PHRASE POLICY  (Willis 2003)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Step 1 — CANDIDATE SCAN
-  Identify all multi-word spans that might match categories C1–C9.
+ALL prepositional phrases are learning units. Always place @@ at every PP boundary.
 
-Step 2 — CATEGORY MATCH TEST
-  For each candidate span, ask: "Does this clearly belong to one of C1–C9?"
-    Clear match   → CHUNK. Proceed to Step 3.
-    Borderline    → apply Step 2b.
-    No match      → NOT a chunk. Move on.
+  Directional    to the forest, into the room, through the door
+  Locative       under a bench, in the room, at the door
+  Source         from the shadows, out of the box
+  Temporal       in the morning, at night, on Monday
+  Beneficiary    for Bear, to Mom
+  Accompaniment  with his friend, with Bear
+  Manner/Emotion with delight, with excitement, with care
+  Instrument     with a pen, by car
+  Cause/Reason   because of her fever
 
-Step 2b — BORDERLINE DEGREE ASSESSMENT
-  For weak or borderline candidates, assess degree on three dimensions:
-    Q1. Fixedness:          Does the form resist substitution or reordering?
-    Q2. Idiomaticity:       Is meaning non-compositional?
-    Q3. Conventionalisation: Does this exact combination recur in standard use?
+  He hid@@under a bench.  /  She played@@with delight.  /  They left@@in the morning.
 
-  HIGH on ≥ 1 dimension AND moderate on another → treat as CHUNK.
-  LOW on all dimensions                          → FREE COMBINATION (not a chunk).
-
-  NOTE: Productive grammatical patterns — "be + Adj", "V + to + V",
-  "the + Adj + N", "modal + V", "be + V-ing/V-ed" — score LOW on all
-  dimensions even when frequent. FREQUENCY ALONE IS NOT SUFFICIENT.
-
-Step 3 — BOUNDARY PLACEMENT
-  • @@ BEFORE a chunk when the chunk follows other material.
-  • @@ AFTER  a chunk when the chunk precedes other material.
-  • C7 phrasal verb + object:
-      @@ goes AFTER the phrasal verb and BEFORE its object.
-        "Liam looks for@@Bear"   ← NOT "Liam@@looks for Bear"
-  • Quoted speech + reporting clause:
-      @@ between the quoted string and the reporting clause (both directions).
-        "\"Bear!\"@@he calls."     (quote BEFORE reporting clause)
-        "It says@@\"Bear.\""       (verb BEFORE quote)
-
-Step 4 — JUSTIFICATION CHECK  (internal, run before writing any @@)
-  Ask: "Which chunk does this @@ delimit? Which category C1–C9 does it belong to?"
-  If you cannot name both the chunk and its category → REMOVE the @@.
+NOTE: When a PP is the object of a C7 Phrasal Verb, @@ goes AFTER the phrasal verb:
+  She ran out of@@steam.     He looked for@@the key@@in the room.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CRITICAL EXCLUSIONS — NEVER PLACE @@ HERE
+GROUP C — READABILITY POLICY  (in-house)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-E1  Subject–Verb boundary
-    WRONG: "Liam@@draws a picture"  /  "He@@hugs Bear"
-    Reason: Syntactic parsing, not lexical chunking.
+C-1  COORDINATE CONJUNCTION joining CLAUSES (and, but, or)
+     Place @@ BEFORE the conjunction.
+       Milo is a little chameleon,@@and he loves to@@change his colors.
+     ✗ NEVER split conjunction joining words or short phrases → E11:
+         run and jump  /  small and cute
 
-E2  Auxiliary + main verb  (progressive, passive)
-    WRONG: "is@@wearing a collar"  /  "is@@printed on it"
-    Reason: Tense/aspect/voice = grammatical structure, not a chunk.
+C-2  SUBORDINATE CONJUNCTION (that, if, whether, because, when, although, since, etc.)
+     Place @@ BEFORE the subordinate clause.
+       He sees@@that he is gray.
+       But@@one morning,@@when Milo wakes up,@@he sees@@that he is gray.
 
-E3  Modal + verb
-    WRONG: "could@@be a monster"  /  "may@@come tomorrow"
-    Reason: Modal constructions = grammatical structure.
+C-3  RELATIVE CLAUSE (who, which, that [relative], where, when [relative])
+     Place @@ BEFORE the relative word.
+       Once there was a man@@who lived@@with his young daughter.
 
-E4  V + to + V  (infinitive complement)
-    WRONG: "begins@@to fall"  /  "wants@@to leave"
-    Reason: Infinitive complementation = grammatical structure.
+C-4  OMITTED RELATIVE PRONOUN
+     Place @@ before the reduced relative clause.
+       all the lands@@the Cat had just passed by@@belonged to@@him.
 
-E5  Article + adjective + noun  (free productive noun phrase)
-    WRONG: "a@@big dog"  /  "the@@blue collar"
-    Reason: Free combination — not conventionalised as a fixed unit.
+C-5  QUOTED SPEECH / DIALOGUE
+     Place @@ between quoted string and reporting clause (both directions).
+       "I found my color!"@@he says.      (quote before reporting clause)
+       It says@@"Bear."                   (verb before quote)
 
-E6  Inside a confirmed chunk
-    WRONG: "feels@@a little@@afraid"  (if "a little afraid" is treated as one chunk)
-    RIGHT:  "feels@@a little afraid"
-    Reason: @@ marks chunk EDGES, not internal positions.
+C-6  V + to + V — SUBJECT CONTROL (idiomatic / C5 Verb Pattern)
+     Treat "V + to" as one unit. Place @@ AFTER "to", BEFORE the bare infinitive.
+       begins to@@fall,  wants to@@leave,  loves to@@change,  comes to@@understand
+     ✗ NEVER split between V and "to": begins@@to fall  → E4
+     Common subject-control verbs: begin, want, love, try, need, come, start, continue, decide
 
-E7  Verb–Object boundary  (transitive verbs)
-    WRONG: "Liam draws@@a picture"  /  "He finds@@Bear"  /  "She reads@@a book"
-    Reason: V+O boundary is syntactic constituent structure, not a chunk boundary.
-    EXCEPTION: If the verb is part of a confirmed C7 Phrasal Verb, @@ goes
-    AFTER the phrasal verb and BEFORE its object:
-      "Liam looks for@@Bear"  ✓   (look for = C7 chunk)
-      "Liam@@looks for Bear"  ✗   "Liam looks@@for Bear"  ✗
-
-E8  Linking verb + Complement boundary
-    WRONG: "The dog looks@@sad"  /  "Bear is@@wet"  /  "He seems@@happy"
-    Reason: Linking verb + Adj/Noun complement is a productive syntactic pattern
-    (BE / SEEM / LOOK / FEEL / BECOME + complement). Not a chunk.
-    EXCEPTION: If the [verb + complement] is itself a Fixed Expression (C1/C2),
-    treat the whole as ONE chunk with NO internal split:
-      "fall asleep" → C1 chunk, no split inside
-      "come true"   → C1 chunk, no split inside
-      "go crazy"    → C1 chunk, no split inside
-
-E9  Verb–Adverb boundary  (manner adverbs, free combinations)
-    WRONG: "Liam smiles@@gently"  /  "She speaks@@softly"  /  "He runs@@quickly"
-    Reason: Verb + manner adverb is a free combination, not a chunk.
-    EXCEPTION: When the adverb forms part of a C7 Phrasal Verb, the whole
-    verb+particle unit is a single chunk — no internal @@ inside it:
-      "calls out" → C7 chunk as-is, no @@ inside
+C-7  to-INFINITIVE — OBJECT CONTROL (non-idiomatic)
+     Place @@ BEFORE "to" when it follows a noun/pronoun object.
+       The King asked him@@to join them@@in the coach.
+       A rabbit came@@to look inside@@the bag.
+     Judgment: if "V + to" is idiomatic (love to, want to, begin to, try to, need to)
+     → apply C-6; otherwise → apply C-7.  Reference: OED / Longman / Naver.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-GENERALISED PRINCIPLE
+FORBIDDEN — NEVER PLACE @@ HERE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"@@" marks the EDGE of an identified multi-word chunk.
-It NEVER marks:
-  • The boundary between major syntactic constituents
-    (Subject | Verb | Object | Complement | Adverbial)
-  • The boundary between a head and its dependent
-    (Verb | Object, Verb | Complement, Verb | Adverb)
-  • The boundary between auxiliary and main verb
-  • A boundary inside a productive grammatical structure
-
-If your candidate @@ falls on any of these syntactic boundaries, ask:
-  "Is there a multi-word chunk on one side whose EDGE I am marking?"
-    YES → keep @@ only if you can name the chunk and its C1–C9 category.
-    NO  → remove @@.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PREPOSITIONAL PHRASE POLICY — Policy A  (Conservative)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Place @@ at a PP boundary ONLY when the PP qualifies as:
-  (a) A Fixed Expression or Cluster (C2/C9):
-        "in fact", "at home", "in the end", "every day", "once upon a time"
-  (b) The object of a confirmed Phrasal Verb (C7):
-        "looks for@@Bear"  /  "searches for@@the key"
-  (c) A high-frequency manner/time collocation (C1, MI ≥ 3.0):
-        "with delight", "with excitement", "in silence"
-
-Do NOT place @@ before generic locative, temporal, or recipient PPs:
-  "under a bench", "from the sky", "for Bear", "to Mom", "at the door",
-  "in the forest", "from the shadows" — even after a complete clause.
-
-Apply Policy A UNIFORMLY across all sentences in the batch.
+E1   Subject–Verb                  WRONG: Liam@@draws a picture
+E2   Auxiliary + main verb         WRONG: is@@wearing,  is@@printed
+E3   Modal + verb                  WRONG: could@@be,  may@@come
+E4   V@@to+V  (before "to")        WRONG: begins@@to fall,  wants@@to leave
+E5   Article + Adj + N (free NP)   WRONG: a@@big dog,  the@@blue collar
+E6   Inside a confirmed chunk      WRONG: feels@@a little@@afraid
+E7   Verb–Object (transitive)      WRONG: draws@@a picture,  finds@@Bear
+E8   Linking verb + Complement     WRONG: looks@@sad,  is@@happy,  seems@@tired
+       EXCEPTION: if [V + complement] is itself C1/C2 → one chunk, no internal split:
+         fall asleep / come true / go crazy
+E9   Verb–single adverb (free)     WRONG: smiles@@gently,  runs@@quickly
+E10  Single-word adverbs           WRONG: Maybe@@X,  Then@@X,  Next@@X
+E11  Conjunction joining words/phrases  WRONG: run@@and jump,  small@@and cute
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CONSISTENCY VERIFICATION  (run before producing final output)
+MANDATORY SELF-CHECK  (for every @@ before writing output)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. Group sentences by structural pattern:
-     S+V  /  S+V+O  /  S+V+Adj  /  S+V+PP  /  reporting clauses  /  quoted speech
-2. Verify identical @@ treatment within each group.
-3. If inconsistent → apply the more conservative (fewer splits) treatment to ALL.
-4. Specifically verify:
-   • No subject-verb splits anywhere
-   • All reporting clauses treated identically
-   • All instances of the same phrasal verb split identically
-   • All time expressions of the same type split identically
-   • All PPs of the same type follow Policy A
+Complete: "This @@ marks [chunk / clause / PP] under [Group A category / Group B type / Group C rule]."
+Cannot fill both blanks → REMOVE the @@.
+
+Invalid: "separates verb from object" / "marks a natural pause"
+Valid:
+  ✓ "'every day' (C2 Fixed Expression)"
+  ✓ "'look for' (C7 Phrasal Verb) — @@ after PV, before object"
+  ✓ "'in the room' (Group B, Locative PP)"
+  ✓ "'and' introducing new clause (C-1)"
+  ✓ "'that he is gray' complement clause (C-2)"
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EXAMPLES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-── C2/C9 time expression ──
-Input:  SC01_ST01_N = They play every day.
-Output: SC01_ST01_N_C = They play@@every day.
-  → "every day" = C2 Fixed Expression / C9 Cluster. No S/V split (E1).
+── C2 Fixed Expression ──
+In:  SC01_ST01_N = They play every day.
+Out: SC01_ST01_N_C = They play@@every day.
 
-── C7 phrasal verb + object ──
-Input:  SC02_ST01_N = Liam looks for Bear.
-Output: SC02_ST01_N_C = Liam looks for@@Bear.
-  → "looks for" = C7 Phrasal Verb. @@ after PV, before object.
+── C7 Phrasal Verb + Group B PP ──
+In:  SC02_ST01_N = Liam looks for Bear in the forest.
+Out: SC02_ST01_N_C = Liam looks for@@Bear@@in the forest.
 
-── No chunks → no split ──
-Input:  SC03_ST01_N = Liam smiles gently at him.
-Output: SC03_ST01_N_C = Liam smiles gently at him.
-  → No span matches C1–C9 (Step 4: cannot name chunk + category). No @@ placed.
+── Group B: C1 collocation + locative PP ──
+In:  SC03_ST01_N = The bear felt a little afraid in the forest.
+Out: SC03_ST01_N_C = The bear felt@@a little afraid@@in the forest.
 
-── E2: auxiliary construction, never split ──
-Input:  SC04_ST01_D = The dog is wearing a blue collar.
-Output: SC04_ST01_D_C = The dog is wearing a blue collar.
-  → "is wearing" = E2 (be + V-ing). Not a chunk. "a blue collar" = free NP (E5).
+── E2: auxiliary — no split ──
+In:  SC04_ST01_D = The dog is wearing a blue collar.
+Out: SC04_ST01_D_C = The dog is wearing a blue collar.
 
-── E4 + E1 + Policy A: no splits ──
-Input:  SC05_ST01_D = Heavy rain begins to fall from the sky.
-Output: SC05_ST01_D_C = Heavy rain begins to fall from the sky.
-  → "begins to fall" = E4 (V + to + V). Not a chunk.
-  → "from the sky" = generic locative PP (Policy A: no split).
-  → "Heavy rain" = C1 collocation, but E1 blocks @@ at the S/V boundary.
+── C-1: coordinate conjunction (clauses) ──
+In:  SC05_ST01_N = Milo is a little chameleon and he loves to change his colors.
+Out: SC05_ST01_N_C = Milo is a little chameleon,@@and he loves to@@change his colors.
 
-── C3 whole-sentence formulaic utterance → no split ──
-Input:  SC06_ST01_E = Take your time.
-Output: SC06_ST01_E_C = Take your time.
-  → Whole-sentence C3 Formulaic Utterance → return as-is.
+── C-2: subordinate conjunction ──
+In:  SC06_ST01_N = He sees that he is gray.
+Out: SC06_ST01_N_C = He sees@@that he is gray.
+
+── C-6: V+to+V subject control + Group B PP ──
+In:  SC07_ST01_N = Heavy rain begins to fall from the sky.
+Out: SC07_ST01_N_C = Heavy rain begins to@@fall@@from the sky.
+
+── C-7: to-infinitive object control + Group B PP ──
+In:  SC08_ST01_N = The King asked him to join them in the coach.
+Out: SC08_ST01_N_C = The King asked him@@to join them@@in the coach.
+
+── C-5: quoted speech + Group B PP ──
+In:  SC09_ST01_N = "Bear!" he calls from the shadows.
+Out: SC09_ST01_N_C = "Bear!"@@he calls@@from the shadows.
 
 ── C2 + C9 + C1 ──
-Input:  SC07_ST01_N = By the way, there is no way of knowing what will take place.
-Output: SC07_ST01_N_C = By the way,@@there is no way of knowing@@what will@@take place.
-  → "By the way" = C2 Fixed Expression.
-  → "there is no way of knowing" = C9 Cluster / C3 Formulaic Utterance.
-  → "take place" = C1 Collocation.
+In:  SC10_ST01_N = By the way, there is no way of knowing what will take place.
+Out: SC10_ST01_N_C = By the way,@@there is no way of knowing@@what will@@take place.
 
-── C1 degree collocation + Policy A ──
-Input:  SC08_ST01_D = The bear feels a little afraid in the forest.
-Output: SC08_ST01_D_C = The bear feels@@a little afraid in the forest.
-  → "a little afraid" = C1 Collocation (conventionalised degree + adj unit).
-  → "in the forest" = generic locative PP (Policy A: no split).
+── E1+E7: no chunk ──
+In:  SC11_ST01_N = Liam draws a picture.
+Out: SC11_ST01_N_C = Liam draws a picture.
 
-── Reporting clause: quote BEFORE clause (Step 3) ──
-Input:  SC09_ST01_N = "Bear!" he calls from the shadows.
-Output: SC09_ST01_N_C = "Bear!"@@he calls from the shadows.
-  → @@ between quoted speech and reporting clause (Step 3).
-  → "from the shadows" = generic locative PP (Policy A: no split).
-
-── Reporting clause: verb BEFORE quote (Step 3) ──
-Input:  SC10_ST01_N = It says "Bear."
-Output: SC10_ST01_N_C = It says@@"Bear."
-  → Verb before quote → @@ between verb and quoted string (Step 3).
-
-── E2/E4 auxiliary chain + C7 + C2/C9 ──
-Input:  SC11_ST01_D = The man seems to be searching for something every day.
-Output: SC11_ST01_D_C = The man seems to be searching for@@something@@every day.
-  → "seems to be searching" = E2 + E4 auxiliary chain. Not a chunk.
-  → "searching for" = C7 Phrasal Verb. @@ after PV, before object.
-  → "every day" = C2/C9. @@ before it.
-
-── S + be + Adj: productive, not a chunk ──
-Input:  SC12_ST01_N = Lily was happy and the sun was bright.
-Output: SC12_ST01_N_C = Lily was happy and the sun was bright.
-  → "was happy", "was bright" = productive S + be + Adj.
-  → Low on all degree dimensions (Step 2b). No @@ placed.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-MANDATORY SELF-CHECK  (complete for every @@ before writing output)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-For EVERY @@ you place, complete this sentence in your internal reasoning:
-  "This @@ marks the boundary of chunk '_______' which belongs to
-   category C__ because _______."
-If you cannot fill all three blanks with specific content → REMOVE the @@.
-
-The following are NOT valid justifications:
-  ✗ "This separates the verb from its object."
-  ✗ "This separates the subject from the predicate."
-  ✗ "This separates two meaningful parts of the sentence."
-  ✗ "This marks a natural rhythm or pause boundary."
-
-Valid justifications cite a SPECIFIC chunk and SPECIFIC category:
-  ✓ "'every day' (C2 Fixed Expression) — invariant time adverbial."
-  ✓ "'look for' (C7 Phrasal Verb) — boundary after PV, before its object."
-  ✓ "'no way!' (C3 Formulaic Utterance) — whole-sentence fixed unit."
+── E11: conjunction joining words — no split ──
+In:  SC12_ST01_N = He ran and jumped with joy.
+Out: SC12_ST01_N_C = He ran and jumped@@with joy.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 OUTPUT RULES
