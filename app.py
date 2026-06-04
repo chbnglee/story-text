@@ -126,24 +126,24 @@ ALL prepositional phrases are learning units. Always place @@ at every PP bounda
 NOTE: When a PP is the object of a C7 Phrasal Verb, @@ goes AFTER the phrasal verb:
   She ran out of@@steam.     He looked for@@the key@@in the room.
 
-EXCEPTION 1 — Required complement PP (not an optional adjunct):
-When the PP is semantically required for the sentence to be complete, do NOT split.
-Test: "Can the sentence stand alone without the PP and still make full sense?"
-  NO  → required complement → do NOT split
-  YES → optional adjunct    → DO split
-
-  Required (no split):
-    "The strength is inside me."   be + location required   ✗ is@@inside me
-    "Judy sat on the bench."       sit requires location    ✗ sat@@on the bench
-    "He lived in the forest."      live requires location   ✗ lived@@in the forest
-  Optional (split):
-    "He hid@@under a bench."       hid = complete without PP  ✓
-    "She played@@with delight."    played = complete without PP  ✓
+EXCEPTION 1 — Existential/Locative be:
+When "be" is used as an existential/locative verb and removing the PP makes
+the sentence incomplete, do NOT split the PP.
+  "The strength is inside me." → The strength is inside me.   ✗ is@@inside me
+  "He was at home."            → He was at home.              ✗ was@@at home
+Other verbs → DO split the PP regardless:
+  Judy sat@@on the bench.   He went@@to the court.   ✓
 
 EXCEPTION 2 — Passive by-agent:
 In passive constructions (be + p.p. + by), place @@ BEFORE "by".
   Bella was surprised@@by Judy's play.
   She was helped@@by her friends.
+
+EXCEPTION 3 — Nominal PP modifier (PP post-modifying a noun):
+When a PP (typically "of + NP") post-modifies a noun within an NP, do NOT split.
+  long hours of practice   → long hours of practice   ✗ hours@@of practice
+  a glass of water         → a glass of water          ✗ glass@@of water
+  the sound of music       → the sound of music        ✗ sound@@of music
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 GROUP C — READABILITY POLICY  (in-house)
