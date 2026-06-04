@@ -32,6 +32,10 @@ COL_WIDTHS = {"ID": 12, "Key": 22, "Text": 80}
 
 SCENE_RE = re.compile(r"#SC(\d+)", re.MULTILINE)
 
+ABBREVS = frozenset({
+    "Mr", "Mrs", "Ms", "Dr", "Prof", "Jr", "Sr", "St", "Mt",
+})
+
 EMOTION_PROMPT = """\
 You are tagging the emotional tone of each scene in a children's story.
 
@@ -458,6 +462,14 @@ def split_sentences(text: str) -> list[str]:
                 # else Rule 2: comma before closing quote → 1 sentence
 
         elif ch in '.!?':
+            if ch == '.':
+                j = i - 1
+                while j >= start and text[j].isalpha():
+                    j -= 1
+                if text[j + 1:i] in ABBREVS:
+                    i += 1
+                    continue
+
             if in_quote:
                 nxt = skip_ws(i + 1)
                 # Uppercase inside quotes (not closing quote) → split within quote
