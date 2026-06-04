@@ -126,6 +126,25 @@ ALL prepositional phrases are learning units. Always place @@ at every PP bounda
 NOTE: When a PP is the object of a C7 Phrasal Verb, @@ goes AFTER the phrasal verb:
   She ran out of@@steam.     He looked for@@the key@@in the room.
 
+EXCEPTION 1 — Required complement PP (not an optional adjunct):
+When the PP is semantically required for the sentence to be complete, do NOT split.
+Test: "Can the sentence stand alone without the PP and still make full sense?"
+  NO  → required complement → do NOT split
+  YES → optional adjunct    → DO split
+
+  Required (no split):
+    "The strength is inside me."   be + location required   ✗ is@@inside me
+    "Judy sat on the bench."       sit requires location    ✗ sat@@on the bench
+    "He lived in the forest."      live requires location   ✗ lived@@in the forest
+  Optional (split):
+    "He hid@@under a bench."       hid = complete without PP  ✓
+    "She played@@with delight."    played = complete without PP  ✓
+
+EXCEPTION 2 — Passive by-agent:
+In passive constructions (be + p.p. + by), place @@ BEFORE "by".
+  Bella was surprised@@by Judy's play.
+  She was helped@@by her friends.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 GROUP C — READABILITY POLICY  (in-house)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -147,6 +166,9 @@ C-3  RELATIVE CLAUSE (who, which, that [relative], where, when [relative])
 C-4  OMITTED RELATIVE PRONOUN
      Place @@ before the reduced relative clause.
        all the lands@@the Cat had just passed by@@belonged to@@him.
+     ✗ EXCEPTION: be/get/become + p.p. (passive voice) is NOT an omitted relative.
+         It was called Jingle Jump.   → no split
+         The door was opened.         → no split
 
 C-5  QUOTED SPEECH / DIALOGUE
      Place @@ between quoted string and reporting clause (both directions).
@@ -177,6 +199,7 @@ E5   Article + Adj + N (free NP)   WRONG: a@@big dog,  the@@blue collar
 E6   Inside a confirmed chunk      WRONG: feels@@a little@@afraid
 E7   Verb–Object (transitive)      WRONG: draws@@a picture,  finds@@Bear
 E8   Linking verb + Complement     WRONG: looks@@sad,  is@@happy,  seems@@tired
+       Extends to get/become + p.p.:  WRONG: got@@hurt,  became@@well-known
        EXCEPTION: if [V + complement] is itself C1/C2 → one chunk, no internal split:
          fall asleep / come true / go crazy
 E9   Verb–single adverb (free)     WRONG: smiles@@gently,  runs@@quickly
